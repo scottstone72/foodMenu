@@ -1,0 +1,36 @@
+<div class="col-md-12">
+    <div class="heading1">
+        <h3 class="secondary">{{ __SELF__.subCategoryTitle }}</h3>
+    </div>
+    <hr>
+</div>
+
+{% set menuItems = __SELF__.menuItems %}
+
+{% if menuItems %}
+{% for menuItem in menuItems %}
+
+<div class="col-md-6 col-lg-6">
+    <div class="box5">
+        <div class="row">
+            <!--<div class="col-lg-4">-->
+            <!--{% if menuItem.image.path %}-->
+            <!--&lt;!&ndash;<img class="img-responsive" src="{{ menuItem.image.path }}" alt=""/>&ndash;&gt;-->
+            <!--{% endif %}-->
+            <!--</div>-->
+            <div class="col-lg-12">
+                <h4>{{ menuItem.name }} </h4>
+                <p>{{ menuItem.description }}</p>
+                {% for price in menuItem.price %}
+                <div class="price"><span class="portion-price">{{ price.price }}</span> ... <span
+                        class="portion">{{ price.portion_size }}</span></div>
+                <br>
+                &nbsp
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+<!-- end Menu Listing -->

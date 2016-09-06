@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Wine Category
+
+# Model Form Field configuration
+form: $/stone/foodmenu/models/winecategory/fields.yaml
+
+# Model Class name
+modelClass: Stone\FoodMenu\Models\WineCategory
+
+# Default redirect location
+defaultRedirect: stone/foodmenu/winecategories
+
+# Create page
+create:
+    title: Create Wine Category
+    redirect: stone/foodmenu/winecategories/update/:id
+    redirectClose: stone/foodmenu/winecategories
+
+# Update page
+update:
+    title: Edit Wine Category
+    redirect: stone/foodmenu/winecategories
+    redirectClose: stone/foodmenu/winecategories
+
+# Preview page
+preview:
+    title: Preview Wine Category

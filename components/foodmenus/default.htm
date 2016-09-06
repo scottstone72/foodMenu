@@ -1,0 +1,131 @@
+<script>
+    (function ($) {
+
+        $('#foodMenu').carousel({
+            interval: 4000
+        });
+    })(jQuery);
+
+</script>
+
+<div class="col-md-6 col-lg-6 menu-slider">
+    <div id="foodMenu" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            {% set foodItemsImages = __SELF__.menuItems %}
+
+            {% if foodItemsImages %}
+            {% for foodImage in foodItemsImages if foodImage.image.path %}
+            {{ foodImage }}
+
+            <div class="item {% if loop.first %} active {% endif %}">
+                <img class="img-responsive" src="{{ foodImage.image.path }}" alt=""/>
+                <div class="carousel-caption">
+                    {{ foodImage.name }}
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+</div><!-- Slider row -->
+<div class="row">
+    <div class="col-lg-12">
+
+        {% set categories = __SELF__.categories %}
+
+        <div class="food-categories">
+            {% if categories %}
+            {% for category in categories %}
+            <form data-request="{{ __SELF__ }}::onSubCategories" data-request-data="category: {{ category.id }}"
+                  data-request-update="'{{ __SELF__ }}::food-menu-list': '#viewOutput'"
+                  style="display: inline-block">
+                <button type="submit" class="btn btn-default">{{ category.name }}</button>
+                {% if loop.index == 1 %}
+                <span style="color: #ffffff;display: inline-block;margin-top: 15px;padding: 0 10px;">- OR -</span>
+                {% endif %}
+
+            </form>
+            {% endfor %}
+            {% endif %}
+            <p>Select a Menu</p>
+        </div>
+
+    </div>
+
+    <div class="col-lg-12">
+
+        <!--<div class="mTop"></div>-->
+        <div id="viewOutput" style="margin-top: 15px;">
+
+            <div class="heading1">
+                <h3 class="secondary">{{ __SELF__.categoryTitle }}</h3>
+                <p>Select a Category</p>
+            </div>
+
+            {% set subcategories = __SELF__.subCategories %}
+
+            <div class="food-categories">
+                {% if subcategories %}
+                {% for key, category in subcategories %}
+                {% for subkey, subcategory in category %}
+                <form data-request="{{ __SELF__ }}::onGetFoodMenu"
+                      data-request-data="sub_category: {{ subkey }}, category: {{ key }}"
+                      data-request-update="'{{ __SELF__ }}::food-menu-items': '#menu-items-output'"
+                      style="display: inline-block">
+                    <button type="submit" class="btn btn-default">{{ subcategory }}</button>
+                </form>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="row">
+                <div id="menu-items-output" style="margin-top: 30px">
+
+                    <div class="col-md-12">
+                        <div class="heading1">
+                            <h3 class="secondary">{{ __SELF__.subCategoryTitle }}</h3>
+                        </div>
+                        <hr>
+                    </div>
+
+                    {% set menuItems = __SELF__.menuItems %}
+
+                    {% if menuItems %}
+                    {% for menuItem in menuItems %}
+
+                    <div class="col-md-6 col-lg-6">
+                        <div class="box5">
+                            <div class="row">
+                                <!--<div class="col-lg-4">-->
+                                <!--{% if menuItem.image.path %}-->
+                                <!--&lt;!&ndash;<img class="img-responsive" src="{{ menuItem.image.path }}" alt=""/>&ndash;&gt;-->
+                                <!--{% endif %}-->
+                                <!--</div>-->
+                                <div class="col-lg-12">
+                                    <h4>{{ menuItem.name }} </h4>
+                                    <p>{{ menuItem.description }}</p>
+                                    {% for price in menuItem.price %}
+                                    <div class="price"><span class="portion-price">{{ price.price }}</span> ... <span
+                                            class="portion">{{ price.portion_size }}</span></div>
+                                    <br>
+                                    &nbsp
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <!-- end Menu Listing -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<br>

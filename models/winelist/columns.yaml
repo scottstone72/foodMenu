@@ -1,0 +1,27 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+
+    wine_categories:
+        label: Category
+        relation: wine_categories
+        select: name
+        searchable: true
+
+    variety:
+        label: Variety
+        type: text
+        searchable: true
+
+    brand:
+        label: Brand
+        type: text
+
+    enable:
+        label: Enable
+        type: switch

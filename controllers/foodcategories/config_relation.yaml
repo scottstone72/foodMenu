@@ -1,0 +1,21 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+food_categories:
+    label: Food Categories
+    view:
+    list: ~/plugins/stone/foodmenu/models/foodcategory/columns.yaml
+    manage:
+    list: ~/plugins/stone/foodmenu/models/foodcategory/columns.yaml
+    form: ~/plugins/stone/foodmenu/models/foodcategory/fields.yaml
+        context: relation
+
+sub_categories:
+    label: Food Sub Categories
+    view:
+    list: ~/plugins/stone/foodmenu/models/foodsubcategory/columns.yaml
+    manage:
+    list: ~/plugins/stone/foodmenu/models/foodsubcategory/columns.yaml
+    form: ~/plugins/stone/foodmenu/models/foodsubcategory/fields.yaml
+        context: relation

@@ -1,0 +1,25 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+
+    drink_categories:
+        label: Category
+        relation: drink_categories
+        select: name
+        searchable: true
+
+    name:
+        label: Menu Item
+        type: text
+        span: left
+        searchable: true
+
+    enable:
+        label: Enable
+        type: switch
+        span: left

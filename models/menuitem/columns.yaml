@@ -1,0 +1,30 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Menu Item
+        type: text
+        span: left
+        searchable: true
+
+    enable:
+        label: Enable
+        type: switch
+        span: left
+
+    food_categories:
+        label: Category
+        relation: food_categories
+        select: name
+        searchable: true
+
+    sub_categories:
+        label: Sub Category
+        relation: sub_categories
+        select: subname
+        searchable: true

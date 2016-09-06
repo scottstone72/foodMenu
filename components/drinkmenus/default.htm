@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-lg-12">
+
+        {% set categories = __SELF__.categories %}
+        <div class="drink-categories">
+            {% if categories %}
+            {% for category in categories %}
+            <form data-request="{{ __SELF__ }}::onGetDrinkMenu" data-request-data="category: {{ category.id }}"
+                  data-request-update="'{{ __SELF__ }}::drink-menu-list': '#viewOutput'"
+                  style="display: inline-block">
+                <button type="submit"
+                        class="btn btn-default"
+                >{{ category.name }}
+                </button>
+            </form>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="mTop"></div>
+
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 col-lg-4 col-lg-offset-4 menu-slider">-->
+            <!--<div id="drinkMenu" class="carousel slide" data-ride="carousel">-->
+                <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+                <!--<div class="carousel-inner">-->
+                    <!--{% set drinkItemsImage = __SELF__.drinkImages %}-->
+
+                    <!--{% if drinkItemsImage %}-->
+                    <!--{% for drinkImage in drinkItemsImage if drinkImage.image.path %}-->
+
+                    <!--<div class="item {% if loop.first %} active {% endif %}">-->
+                        <!--<img class="img-responsive" src="{{ drinkImage.image.path }}" alt=""/>-->
+                        <!--<div class="carousel-caption">-->
+                            <!--{{ drinkImage.name }}-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--{% endfor %}-->
+                    <!--{% endif %}-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>&lt;!&ndash; Slider row &ndash;&gt;-->
+
+
+        <div class="col-lg-12">
+
+            <!--<div class="mTop"></div>-->
+            <div id="viewOutput">
+
+
+                <div class="heading1">
+                    <h3 class="secondary">{{ __SELF__.category }}</h3>
+                    <hr>
+                </div>
+
+
+                <!-- Menu Small Plates -->
+                {% set drinkItems = __SELF__.drinkMenu %}
+
+                {% if drinkItems %}
+                {% for drinkItem in drinkItems %}
+
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="box5">
+                        <div class="row">
+                            <!--<div class="col-lg-4">-->
+                            <!--{% if foodItem.image.path %}-->
+                            <!--&lt;!&ndash;<img class="img-responsive" src="{{ foodItem.image.path }}" alt=""/>&ndash;&gt;-->
+                            <!--{% endif %}-->
+                            <!--</div>-->
+                            <div class="col-lg-12">
+                                <h4>{{ drinkItem.name }} </h4>
+                                <p>{{ drinkItem.description }}</p>
+                                {% for price in drinkItem.price %}
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <span class="portion">{{ price.portion_size }}</span> <span class="price"> ... {{ price.price }}</span>
+                                    </div>
+                                </div>
+                                <hr class="divider">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <!-- end Menu Listing -->
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<br>

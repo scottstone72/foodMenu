@@ -1,0 +1,77 @@
+<!--<script>-->
+    <!--(function ($) {-->
+
+        <!--$('#foodMenu').carousel({-->
+            <!--interval: 4000-->
+        <!--});-->
+    <!--})(jQuery);-->
+
+<!--</script>-->
+
+
+
+<div class="heading1">
+    <h3 class="secondary">{{ __SELF__.categoryTitle }}</h3>
+    <p>Select a Category</p>
+</div>
+
+{% set subcategories = __SELF__.subCategories %}
+
+<div class="food-categories">
+    {% if subcategories %}
+    {% for key, category in subcategories %}
+        {% for subkey, subcategory in category %}
+        <form data-request="{{ __SELF__ }}::onGetFoodMenu"
+              data-request-data="sub_category: {{ subkey }}, category: {{ key }}"
+              data-request-update="'{{ __SELF__ }}::food-menu-items': '#menu-items-output'"
+              style="display: inline-block">
+        <button type="submit" class="btn btn-default">{{ subcategory }}</button>
+        </form>
+        {% endfor %}
+    {% endfor %}
+    {% endif %}
+</div>
+
+<div class="row">
+    <div id="menu-items-output" style="margin-top: 30px;">
+
+        <div class="col-md-12">
+            <div class="heading1">
+                <h3 class="secondary">{{ __SELF__.subCategoryTitle }}</h3>
+            </div>
+            <hr>
+        </div>
+
+        {% set menuItems = __SELF__.menuItems %}
+
+        {% if menuItems %}
+        {% for menuItem in menuItems %}
+
+        <div class="col-md-6 col-lg-6">
+            <div class="box5">
+                <div class="row">
+                    <!--<div class="col-lg-4">-->
+                    <!--{% if menuItem.image.path %}-->
+                    <!--&lt;!&ndash;<img class="img-responsive" src="{{ menuItem.image.path }}" alt=""/>&ndash;&gt;-->
+                    <!--{% endif %}-->
+                    <!--</div>-->
+                    <div class="col-lg-12">
+                        <h4>{{ menuItem.name }} </h4>
+                        <p>{{ menuItem.description }}</p>
+                        {% for price in menuItem.price %}
+                        <div class="price"><span class="portion-price">{{ price.price }}</span> ... <span
+                                class="portion">{{ price.portion_size }}</span></div>
+                        <br>
+                        &nbsp
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <!-- end Menu Listing -->
+    </div>
+</div>
+
+

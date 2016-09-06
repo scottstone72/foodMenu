@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Drink Category
+
+# Model Form Field configuration
+form: $/stone/foodmenu/models/drinkcategory/fields.yaml
+
+# Model Class name
+modelClass: Stone\FoodMenu\Models\DrinkCategory
+
+# Default redirect location
+defaultRedirect: stone/foodmenu/drinkcategories
+
+# Create page
+create:
+    title: Create Drink Category
+    redirect: stone/foodmenu/drinkcategories/update/:id
+    redirectClose: stone/foodmenu/drinkcategories
+
+# Update page
+update:
+    title: Edit Drink Category
+    redirect: stone/foodmenu/drinkcategories
+    redirectClose: stone/foodmenu/drinkcategories
+
+# Preview page
+preview:
+    title: Preview Drink Category

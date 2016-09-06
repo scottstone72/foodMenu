@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Food Category
+
+# Model Form Field configuration
+form: $/stone/foodmenu/models/foodcategory/fields.yaml
+
+# Model Class name
+modelClass: Stone\FoodMenu\Models\FoodCategory
+
+# Default redirect location
+defaultRedirect: stone/foodmenu/foodcategories
+
+# Create page
+create:
+    title: Create Food Category
+    redirect: stone/foodmenu/foodcategories/update/:id
+    redirectClose: stone/foodmenu/foodcategories
+
+# Update page
+update:
+    title: Edit Food Category
+    redirect: stone/foodmenu/foodcategories
+    redirectClose: stone/foodmenu/foodcategories
+
+# Preview page
+preview:
+    title: Preview Food Category

@@ -1,0 +1,79 @@
+<script>
+    (function ($) {
+
+        $('#wineMenu').carousel({
+            interval: 4000
+        });
+    })(jQuery);
+
+</script>
+
+
+<div class="heading1">
+    <h3 class="secondary">{{ __SELF__.category }}</h3>
+    <hr>
+</div>
+
+<!--<div class="row">-->
+    <!--<div class="col-md-6 col-lg-6 menu-slider">-->
+        <!--<div id="wineMenu" class="carousel slide" data-ride="carousel">-->
+            <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+            <!--<div class="carousel-inner">-->
+                <!--{% set drinkItemsImage = __SELF__.wineMenu %}-->
+
+                <!--{% if drinkItemsImage %}-->
+                <!--{% for drinkImage in drinkItemsImage if drinkImage.image.path %}-->
+
+                <!--<div class="item {% if loop.first %} active {% endif %}">-->
+                    <!--<img class="img-responsive" src="{{ drinkImage.image.path }}" alt=""/>-->
+                    <!--<div class="carousel-caption">-->
+                        <!--{{ drinkImage.name }}-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--{% endfor %}-->
+                <!--{% endif %}-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>&lt;!&ndash; Slider row &ndash;&gt;-->
+
+          <!-- Menu Small Plates -->
+          {% set wineItems = __SELF__.wineMenu %}
+
+          {% if wineItems %}
+          {% for wineItem in wineItems %}
+
+    <div class="col-md-8 col-md-offset-2">
+        <div class="box5">
+            <div class="row">
+                <!--<div class="col-lg-4">-->
+                <!--{% if foodItem.image.path %}-->
+                <!--&lt;!&ndash;<img class="img-responsive" src="{{ foodItem.image.path }}" alt=""/>&ndash;&gt;-->
+                <!--{% endif %}-->
+                <!--</div>-->
+                <div class="col-lg-12">
+                    <h4>{{ wineItem.brand }} </h4>
+                    <p>{{ wineItem.variety }}</p>
+                    <p>{{ wineItem.description }}</p>
+
+                    {% for price in wineItem.price %}
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span class="portion">{{ price.portion_size }}</span>  <span class="price"> ... {{ price.price }}</span>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+          {% endfor %}
+          {% endif %}
+          <!-- end Menu Listing -->
+</div>
+
+

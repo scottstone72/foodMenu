@@ -1,0 +1,28 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        hidden: true
+
+    food_category_section:
+        label: New Food Sub Category
+        type: section
+        comment: Add a new food sub categeory.
+
+#    food_category:
+#        label: Food Category
+#        type: relation
+#        span: auto
+
+    subname:
+        label: Sub Category Name
+        span: left
+
+    slug:
+        label: Slug
+        placeholder: (Use dashes to seperate words)
+        preset: subname
+        span: right

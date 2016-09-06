@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        hidden: true
+
+    food_category_section:
+        label: New Food Category
+        type: section
+        comment: Add a new food categeory.
+
+    name:
+        label: Name
+        span: left
+
+    slug:
+        label: Slug
+        preset: name
+        span: right

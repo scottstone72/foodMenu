@@ -1,0 +1,86 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+
+fields:
+    id:
+        label: ID
+        span: auto
+        disabled: true
+        hidden: true
+
+    user_details_section:
+        label: Create a Menu Item
+        type: section
+        comment: Create and add an item to the menu. (Don't forget to enable the item to show up in the menu.)
+
+    name:
+        label: Name
+        type: text
+        required: true
+        placeholder: Name
+        comment: Add the name of the menu item
+        span: left
+
+    sub_categories:
+        label: Food Sub Categories
+        type: relation
+        span: auto
+        nameFrom: subname
+
+    food_categories:
+        label: Food Categories
+        type: relation
+        span: auto
+        name: name
+
+    description:
+        label: Description
+        type: textarea
+        placeholder: Description
+        comment: Add a description for the menu item
+        span: right
+        size: small
+
+    image:
+        label: User Image
+        type: fileupload
+        mode: image
+        span: left
+        imageHeight: 170
+        imageWidth: 170
+
+    price_details_section:
+        label: Set Portion Size and Price
+        type: section
+        comment: Set Portion Size and Price (If portion size doesn't apply then just leave portion field blank.)
+        span: right
+
+    price:
+        lable: Price
+        type: repeater
+        prompt: Add Portion Size and Price
+        form:
+            fields:
+                portion_size:
+                    label: Portion Size
+                    type: text
+                    span: left
+                price:
+                    label: Price
+                    type: number
+                    span: right
+        span: right
+
+    enable_section:
+        label: Enable Menu Item
+        type: section
+        comment: Enable the menu item to be displayed on the front of website.
+        span: left
+
+    enable:
+        label: Enable
+        type: switch
+        span: left
+        comment: Set this to ON to have the menu item displayed in menu

@@ -1,0 +1,23 @@
+1.0.1: First version of FoodMenu
+1.0.2:
+    - Created FoodMenu table
+    - create_menu_items_table.php
+1.0.3:
+    - Create FoodCategory and FoodCategories_MenuItems tables
+    - create_food_categories_table.php
+    - create_food_categories_menu_items_pivot_table.php
+1.0.4:
+    - Created Drink Categories, Drink Items, Drink Categories Drink Items tables
+    - create_drink_items_table.php
+    - create_drink_categories_table.php
+    - create_drink_categories_drink_items_table.php
+1.0.5:
+    - Created WineCategories, WineLists tables
+    - create_wine_lists_table.php
+    - create_wine_categories_table.php
+    - create_wine_categories_wine_lists_table.php
+1.0.6:
+    - Created FoodSubCategories Controller and FoodSubCategory Model and Seeded tables
+    - create_food_sub_categories_table.php
+    - create_food_sub_categories_menu_items_pivot_table.php
+    - seed_food_and_sub_categories.php

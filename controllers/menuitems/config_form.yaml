@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Menu Item
+
+# Model Form Field configuration
+form: $/stone/foodmenu/models/menuitem/fields.yaml
+
+# Model Class name
+modelClass: Stone\FoodMenu\Models\MenuItem
+
+# Default redirect location
+defaultRedirect: stone/foodmenu/menuitems
+
+# Create page
+create:
+    title: Create Menu Item
+    redirect: stone/foodmenu/menuitems/update/:id
+    redirectClose: stone/foodmenu/menuitems
+
+# Update page
+update:
+    title: Edit Menu Item
+    redirect: stone/foodmenu/menuitems
+    redirectClose: stone/foodmenu/menuitems
+
+# Preview page
+preview:
+    title: Preview Menu Item
